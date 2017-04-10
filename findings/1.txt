@@ -1,0 +1,180 @@
+JRat:INFO (Apr/10 10:43:44,147) (main) ResourceUtil - load resource : jrat-version.properties
+JRat:INFO (Apr/10 10:43:44,149) (main) Agent - Installing JRat 1-alpha2 ClassFileTransformer...
+JRat:INFO (Apr/10 10:43:44,149) (main) Agent - agentArgs = null
+JRat:INFO (Apr/10 10:43:44,151) (main) Settings - string 'jrat.log.level' = 'info'
+JRat:INFO (Apr/10 10:43:44,151) (main) Settings - boolean 'jrat.injector.default.excludes.enabled' = 'true'
+JRat:INFO (Apr/10 10:43:44,154) (main) Agent - criteria = <and><not><class-match><or-matcher><glob pattern="bsh.*"/><glob pattern="com.sun.*"/><glob pattern="EDU.oswego.*"/><glob pattern="gnu.*"/><glob pattern="org.apache.*"/><glob pattern="org.dom4j.*"/><glob pattern="org.hsqldb.*"/><glob pattern="org.jboss.*"/><glob pattern="org.jnp.*"/><glob pattern="$Proxy*"/></or-matcher></class-match></not></and>
+JRat:INFO (Apr/10 10:43:44,332) (main) ServiceFactory - new
+JRat:INFO (Apr/10 10:43:44,340) (main) Settings - string 'jrat.injector.strategy' = 'org.shiftone.jrat.inject.bytecode.asm.AsmInjectorStrategy'
+JRat:INFO (Apr/10 10:43:44,346) (main) Settings - boolean 'jrat.jmx.enabled' = 'true'
+JRat:INFO (Apr/10 10:43:44,347) (main) Settings - boolean 'jrat.jmx.create' = 'false'
+JRat:INFO (Apr/10 10:43:44,349) (main) Settings - string 'jrat.jmx.agent.id' is null
+JRat:INFO (Apr/10 10:43:44,355) (main) ShutdownRegistry - new
+JRat:INFO (Apr/10 10:43:44,356) (main) ShutdownRegistry - registerShutdownListener Transformer[AsmInjectorStrategy(uses http://asm.objectweb.org)]
+JRat:INFO (Apr/10 10:43:44,357) (main) InjectClassFileTransformer - new
+JRat:INFO (Apr/10 10:43:44,357) (main) Agent - Installed org.shiftone.jrat.jvmti.FilterClassFileTransformer@723279cf.
+JRat:INFO (Apr/10 10:43:44,376) (main) InjectClassFileTransformer - error transforming : net/sf/freecol/FreeCol
+	error injecting : [unknown source]
+org.shiftone.jrat.inject.bytecode.InjectorException: error injecting : [unknown source]
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:81)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:62)
+	at org.shiftone.jrat.jvmti.InjectClassFileTransformer.transform(InjectClassFileTransformer.java:35)
+	at org.shiftone.jrat.jvmti.FilterClassFileTransformer.transform(FilterClassFileTransformer.java:30)
+	at sun.instrument.TransformerManager.transform(Unknown Source)
+	at sun.instrument.InstrumentationImpl.transform(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.launcher.LauncherHelper.checkAndLoadMain(Unknown Source)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 1612
+	at org.shiftone.jrat.depends.asm.ClassReader.readClass(Unknown Source)
+	at org.shiftone.jrat.depends.asm.ClassReader.accept(Unknown Source)
+	at org.shiftone.jrat.depends.asm.ClassReader.accept(Unknown Source)
+	at org.shiftone.jrat.inject.bytecode.asm.AsmInjectorStrategy.inject(AsmInjectorStrategy.java:37)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:74)
+	... 18 more
+
+JRat:INFO (Apr/10 10:43:44,397) (main) Settings - boolean 'jrat.timing.nanoseconds' = 'false'
+JRat:INFO (Apr/10 10:43:44,420) (main) InjectClassFileTransformer - error transforming : net/sf/freecol/common/io/FreeColDataFile
+	error injecting : [unknown source]
+org.shiftone.jrat.inject.bytecode.InjectorException: error injecting : [unknown source]
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:81)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:62)
+	at org.shiftone.jrat.jvmti.InjectClassFileTransformer.transform(InjectClassFileTransformer.java:35)
+	at org.shiftone.jrat.jvmti.FilterClassFileTransformer.transform(FilterClassFileTransformer.java:30)
+	at sun.instrument.TransformerManager.transform(Unknown Source)
+	at sun.instrument.InstrumentationImpl.transform(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+	at java.lang.Class.privateGetMethodRecursive(Unknown Source)
+	at java.lang.Class.getMethod0(Unknown Source)
+	at java.lang.Class.getMethod(Unknown Source)
+	at sun.launcher.LauncherHelper.validateMainClass(Unknown Source)
+	at sun.launcher.LauncherHelper.checkAndLoadMain(Unknown Source)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 26877
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.inject.bytecode.asm.AsmInjectorStrategy.inject(AsmInjectorStrategy.java:14)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:74)
+	... 48 more
+
+JRat:INFO (Apr/10 10:43:44,422) (main) InjectClassFileTransformer - error transforming : net/sf/freecol/common/model/Specification
+	error injecting : [unknown source]
+org.shiftone.jrat.inject.bytecode.InjectorException: error injecting : [unknown source]
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:81)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:62)
+	at org.shiftone.jrat.jvmti.InjectClassFileTransformer.transform(InjectClassFileTransformer.java:35)
+	at org.shiftone.jrat.jvmti.FilterClassFileTransformer.transform(FilterClassFileTransformer.java:30)
+	at sun.instrument.TransformerManager.transform(Unknown Source)
+	at sun.instrument.InstrumentationImpl.transform(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+	at java.lang.Class.privateGetMethodRecursive(Unknown Source)
+	at java.lang.Class.getMethod0(Unknown Source)
+	at java.lang.Class.getMethod(Unknown Source)
+	at sun.launcher.LauncherHelper.validateMainClass(Unknown Source)
+	at sun.launcher.LauncherHelper.checkAndLoadMain(Unknown Source)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 87245
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.inject.bytecode.asm.AsmInjectorStrategy.inject(AsmInjectorStrategy.java:14)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:74)
+	... 24 more
+
+JRat:INFO (Apr/10 10:43:44,423) (main) InjectClassFileTransformer - error transforming : net/sf/freecol/common/option/OptionGroup
+	error injecting : [unknown source]
+org.shiftone.jrat.inject.bytecode.InjectorException: error injecting : [unknown source]
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:81)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:62)
+	at org.shiftone.jrat.jvmti.InjectClassFileTransformer.transform(InjectClassFileTransformer.java:35)
+	at org.shiftone.jrat.jvmti.FilterClassFileTransformer.transform(FilterClassFileTransformer.java:30)
+	at sun.instrument.TransformerManager.transform(Unknown Source)
+	at sun.instrument.InstrumentationImpl.transform(Unknown Source)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+	at java.lang.Class.privateGetMethodRecursive(Unknown Source)
+	at java.lang.Class.getMethod0(Unknown Source)
+	at java.lang.Class.getMethod(Unknown Source)
+	at sun.launcher.LauncherHelper.validateMainClass(Unknown Source)
+	at sun.launcher.LauncherHelper.checkAndLoadMain(Unknown Source)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 33387
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.depends.asm.ClassReader.<init>(Unknown Source)
+	at org.shiftone.jrat.inject.bytecode.asm.AsmInjectorStrategy.inject(AsmInjectorStrategy.java:14)
+	at org.shiftone.jrat.inject.bytecode.Transformer.inject(Transformer.java:74)
+	... 24 more
+
+JRat:INFO (Apr/10 10:43:44,433) (JRat-Shutdown) ShutdownRegistry - shutting down...[Transformer[AsmInjectorStrategy(uses http://asm.objectweb.org)]]
+JRat:INFO (Apr/10 10:43:44,433) (JRat-Shutdown) ShutdownRegistry - shutting down Transformer[AsmInjectorStrategy(uses http://asm.objectweb.org)]...
+JRat:INFO (Apr/10 10:43:44,433) (JRat-Shutdown) Transformer - transformed 12 classe(s)
+JRat:INFO (Apr/10 10:43:44,433) (JRat-Shutdown) ShutdownRegistry - shutdown Transformer[AsmInjectorStrategy(uses http://asm.objectweb.org)] complete.
+JRat:INFO (Apr/10 10:43:44,433) (JRat-Shutdown) ShutdownRegistry - shutdown complete.
