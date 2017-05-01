@@ -1,2 +1,92 @@
+10.4. Read in one Hour - jrat
+
+desktop
+---
+1 opening file
+2 misc. tasks
+3 injection file / dir
+
+1 open files
+ViewBuilder
+
+TraceTreeNode (somewhat big class, lots of getter/setters) responsible for showing of main table.
+Apparently walking the source-tree and showing the extracted metrics
+
+2 misc.
+
+
+
+3 hierarchy call for injection:
+(calling from desktop or cli)
+
+AbstractInjectAction private class InjectRunnable
+	Injector inject;
+	inject.inject;
+	
+Injector -> handing to FileProcessor (interface) + Transformer
+	FileProcessor reading file stream [byte]
+	Transformer injecting with strategy (InjectorStrategy interface - one implementor AsmInjectorStrategy)
+		AsmInjectorStrategy Class visitor + injector etc.
+		
+
+core package
+---
+Comment in Mode.java
+	"This has a bit of a smell to it."
+	// todo - fix this
+	
+Config+co is set with Environment class
+
+ServiceFactory as singleton
+
+MethodHandler interface to instrument methods on runtime? or is it for tree building on gui representation?
+
+criteria package (interface + impls) to match methods for instrumentation (and/or?) injection
+	but also in package config, the interface MethodCriteria is implemented?
+	
+MemoryMonitor to write .csv memory statistics
+	
+functionality of core package not yet fully clear...
+
+jvmti
+---
+Agent as entry point to agent-access
+	assignemts to transformer have *.inject calls in the constructors...
+	so the agent installs multiple different transformers to the ClassFileTransformer of the java jvm?!
+
+Summary:
+Code is very poorly documented. Nearly no inline, and also nearly no javadoc.
+Some class hierarchy can be seen and makes sense, but also some non-so-clear connections have been found.
+
+There are some areas for which a reengineering could make sense:
+	- First of all, the inheritance / abstraction structure of MethodCriteria does not make sense immediately
+	- Maybe, calls to different handlers / factories could be made more simple
+	- In-code Documentation could easily be improved
+
+Problems so far:
+	- Package core seems important (name core), but is not good structured (on first sight at least)
+	-- should be further assessed to fully understand the code there (possibly with stepping through?!)
+	
+Important entities: System offers multiple entry points. CLI for desktop invocation, desktop for instrumentation, CLI for instrumentation, CLI for java-agent usage
+	- jvmi.Agent as entry-point for java-agent usage (instrumentation inside the jvm)
+	- desktop.Desktop as entry point for desktop invocation
+	- inject.InjectorCli for CLI-instrumentation of .jars
+	
+Moreover, the following classes might be important:
+	- inject.bytecode.InjectorStrategy + implementation AsmInjectorStrategy might govern how to inject bytecode
+	-- connected to it, the inject.bytecode.Transformer and inject.process.FileProcessor classes have much to do with the logic of injection
+	- core.criteria.MethodCriteria as important interface for matching classes/methods to be instrumented (being it whether on agent runtime or injection in .jars)
+	- Packages provider.silent / provider.tree make it possible to view the data of jrat runs in desktop view
+
+Coding style
+	- Variable names are mostly good, some of them are misleading (maybe?!), e.g. injector = transformer etc.
+	- Whitespace between code lines seems off to me...
+	- No documentation
+	- Some commented-out blocks of code where found
+	- Some comments regarding code smell of particular classes where found
+	- Some comments with //fix this were found
+	- Particular strange invocation patterns where found regarding the transfomers (in Agent, multiple invocations of constructors etc.)
+
+Going forward, tests should also be looked at to see more of correct invocations of the source code.
 
 
