@@ -3,12 +3,14 @@ package org.shiftone.jrat.core.boot;
 import org.shiftone.jrat.core.HandlerFactory;
 import org.shiftone.jrat.core.spi.MethodHandler;
 
+import junit.framework.TestCase;
+
 /**
  * @Author Jeff Drost
  */
-public class BootTest {
-
-    public static void main(String[] args) throws Exception {
+public class BootTest extends TestCase {
+    
+    public void testSimple() throws Exception {
 
         //HandlerFactory.initialize();
 
@@ -25,6 +27,5 @@ public class BootTest {
             a.onMethodFinish(1000, null);
         
         }
-
     }
 }

@@ -35,7 +35,7 @@ public class ShutdownRegistryTestCase extends TestCase {
         public void shutdown() {
             LOG.info("shutdown " + i);
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (Exception e) {
                 LOG.error("sleep failed", e);
             }
