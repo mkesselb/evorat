@@ -8,6 +8,7 @@ import org.shiftone.jrat.util.jmx.dynamic.ConfigurableMBeanTestCase;
 
 @Suite.SuiteClasses({ 
 	PropertyUtilTestCase.class,
+	CharacterIteratorTest.class,
 	ConfigurableMBeanTestCase.class,
 	NestedRuntimeExceptionTestCase.class
 })

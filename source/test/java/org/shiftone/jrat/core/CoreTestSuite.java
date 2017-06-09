@@ -9,6 +9,7 @@ import org.shiftone.jrat.core.command.TinyWebServerTestCase;
 
 @Suite.SuiteClasses({ 
 	BootTest.class,
+	SignatureTest.class,
 	TinyWebServerTestCase.class
 })
 

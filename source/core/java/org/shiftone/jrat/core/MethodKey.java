@@ -20,17 +20,16 @@ public class MethodKey implements Serializable, Comparable {
     private static final Logger LOG = Logger.getLogger(MethodKey.class);
     private static final long serialVersionUID = 1;
 
-
     private ClassKey classKey = null;
     private String methodName = null;
     private String signature = null;
     private int hashCode = 0;
     private transient String toStringValue = null;
+    private transient SignatureParser sigParser = new SignatureParser();
     private transient Signature sig = null;
 
     // todo: decide if the weak map helps
     private static Map CACHE = new WeakHashMap(); //<MethodKey, MethodKey>
-
 
     public static MethodKey getInstance(String fullyQualifiedClassName, String methodName, String signature) {
         ClassKey classKey = ClassKey.getInstance(fullyQualifiedClassName);
@@ -142,7 +141,7 @@ public class MethodKey implements Serializable, Comparable {
     public Signature getSig() {
 
         if (sig == null) {
-            sig = new Signature(signature);
+            sig = sigParser.parseSignature(signature);
         }
 
         return sig;
