@@ -32,7 +32,7 @@ public class JXTableWatcher {
 
             } else if (tableColumns.size() > i) {
 
-                Table.Column tableColumn = (Table.Column) tableColumns.get(i);
+                Column tableColumn = (Column) tableColumns.get(i);
                 columnExt.setVisible(tableColumn.isDefaultVisible());
 
             }

@@ -2,6 +2,7 @@ package org.shiftone.jrat.provider.tree.ui.summary.action;
 
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.table.TableColumnExt;
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.Table;
 
 import javax.swing.*;
@@ -26,7 +27,7 @@ public class ResetColumnVisibilityAction extends AbstractAction {
         List columns = table.getColumns(true);
         for (int i = 0; i < tableColumns.size(); i++) {
             TableColumnExt columnExt = (TableColumnExt) columns.get(i);
-            Table.Column tableColumn = (Table.Column) tableColumns.get(i);
+            Column tableColumn = (Column) tableColumns.get(i);
             columnExt.setVisible(tableColumn.isDefaultVisible());
         }
     }

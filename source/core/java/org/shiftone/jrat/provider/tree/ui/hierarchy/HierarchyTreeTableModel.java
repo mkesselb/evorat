@@ -1,6 +1,7 @@
 package org.shiftone.jrat.provider.tree.ui.hierarchy;
 
 import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.Table;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.HierarchyNode;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.MethodHierarchyNode;
@@ -14,16 +15,16 @@ import java.util.List;
 public class HierarchyTreeTableModel extends AbstractTreeTableModel {
 
     public static final Table TABLE = new Table();
-    public static final Table.Column CLASS = TABLE.column("Class");
-    public static final Table.Column METHODS = TABLE.column("Methods");
-    public static final Table.Column TOTAL_EXITS = TABLE.column("Exists", false);
-    public static final Table.Column UNCALLED = TABLE.column("Uncalled", false);
-    public static final Table.Column COVERAGE = TABLE.column("Coverage %", false);
-    public static final Table.Column EXCEPTIONS = TABLE.column("Exceptions", false);
-    public static final Table.Column ERROR_RATE = TABLE.column("Error Rate", false);
-    public static final Table.Column TOTAL = TABLE.column("Total ms", false);
-    public static final Table.Column TOTAL_METHOD = TABLE.column("Total Method ms");
-    public static final Table.Column PERCENT_METHOD = TABLE.column("Method Time %");
+    public static final Column CLASS = TABLE.column("Class");
+    public static final Column METHODS = TABLE.column("Methods");
+    public static final Column TOTAL_EXITS = TABLE.column("Exists", false);
+    public static final Column UNCALLED = TABLE.column("Uncalled", false);
+    public static final Column COVERAGE = TABLE.column("Coverage %", false);
+    public static final Column EXCEPTIONS = TABLE.column("Exceptions", false);
+    public static final Column ERROR_RATE = TABLE.column("Error Rate", false);
+    public static final Column TOTAL = TABLE.column("Total ms", false);
+    public static final Column TOTAL_METHOD = TABLE.column("Total Method ms");
+    public static final Column PERCENT_METHOD = TABLE.column("Method Time %");
 
     private final PackageHierarchyNode root;
 

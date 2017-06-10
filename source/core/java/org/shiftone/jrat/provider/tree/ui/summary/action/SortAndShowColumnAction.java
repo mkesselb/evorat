@@ -3,6 +3,7 @@ package org.shiftone.jrat.provider.tree.ui.summary.action;
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.decorator.SortOrder;
 import org.jdesktop.swingx.table.TableColumnExt;
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.Table;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class SortAndShowColumnAction extends AbstractAction {
     private final int index;
 
 
-    public SortAndShowColumnAction(String string, JXTable table, Table.Column tableColumn) {
+    public SortAndShowColumnAction(String string, JXTable table, Column tableColumn) {
         super(string);
         this.table = table;
         this.index = tableColumn.getIndex();

@@ -1,5 +1,6 @@
 package org.shiftone.jrat.provider.tree.ui.summary;
 
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.Table;
 import org.shiftone.jrat.util.Percent;
 
@@ -12,23 +13,23 @@ import java.util.List;
 public class SummaryTableModel extends AbstractTableModel {
 
     private static final Table TABLE = new Table();
-    public static final Table.Column PACKAGE = TABLE.column("Package", false);
-    public static final Table.Column CLASS = TABLE.column("Class");
-    public static final Table.Column METHOD = TABLE.column("Method");
-    public static final Table.Column SIGNATURE = TABLE.column("Signature", false);
-    public static final Table.Column ENTERS = TABLE.column("Enters", false);
-    public static final Table.Column EXITS = TABLE.column("Exits");
-    public static final Table.Column EXCEPTIONS = TABLE.column("Exceptions Thrown", false);
-    public static final Table.Column EXCEPTION_RATE = TABLE.column("Exception Rate", false);
-    public static final Table.Column UNCOMPLETED = TABLE.column("Uncompleted Calls", false);
-    public static final Table.Column TOTAL = TABLE.column("Total ms");
-    public static final Table.Column MIN = TABLE.column("Min ms", false);
-    public static final Table.Column MAX = TABLE.column("Max ms", false);
-    public static final Table.Column AVERAGE = TABLE.column("Average ms");
-    public static final Table.Column TOTAL_METHOD = TABLE.column("Total Method ms");
-    public static final Table.Column PERCENT_METHOD = TABLE.column("Method Time %");
-    public static final Table.Column AVERAGE_METHOD = TABLE.column("Average Method ms");
-    public static final Table.Column TOTAL_CALLERS = TABLE.column("Total Callers", false);
+    public static final Column PACKAGE = TABLE.column("Package", false);
+    public static final Column CLASS = TABLE.column("Class");
+    public static final Column METHOD = TABLE.column("Method");
+    public static final Column SIGNATURE = TABLE.column("Signature", false);
+    public static final Column ENTERS = TABLE.column("Enters", false);
+    public static final Column EXITS = TABLE.column("Exits");
+    public static final Column EXCEPTIONS = TABLE.column("Exceptions Thrown", false);
+    public static final Column EXCEPTION_RATE = TABLE.column("Exception Rate", false);
+    public static final Column UNCOMPLETED = TABLE.column("Uncompleted Calls", false);
+    public static final Column TOTAL = TABLE.column("Total ms");
+    public static final Column MIN = TABLE.column("Min ms", false);
+    public static final Column MAX = TABLE.column("Max ms", false);
+    public static final Column AVERAGE = TABLE.column("Average ms");
+    public static final Column TOTAL_METHOD = TABLE.column("Total Method ms");
+    public static final Column PERCENT_METHOD = TABLE.column("Method Time %");
+    public static final Column AVERAGE_METHOD = TABLE.column("Average Method ms");
+    public static final Column TOTAL_CALLERS = TABLE.column("Total Callers", false);
 
 
     private final MethodSummaryModel summaryModel;
@@ -105,7 +106,7 @@ public class SummaryTableModel extends AbstractTableModel {
                 : new Percent((double) tmd.longValue() * 100.0 / (double) summaryModel.getTotalMethodDuration());
     }
 
-    public static List getColumns() {
+    public static List<Column> getColumns() {
         return TABLE.getColumns();
     }
 

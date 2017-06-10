@@ -10,7 +10,7 @@ import java.util.List;
 public class Table {
 
 
-    private List columns = new ArrayList();
+    private List<Column> columns = new ArrayList<>();
 
     public synchronized Column column(String name) {
         return column(name, true);
@@ -20,13 +20,13 @@ public class Table {
         return column(name, Object.class, defaultVisible);
     }
 
-    public synchronized Column column(String name, Class type, boolean defaultVisible) {
+    public synchronized Column column(String name, Class<?> type, boolean defaultVisible) {
         Column column = new Column(columns.size(), name, type, defaultVisible);
         columns.add(column);
         return column;
     }
 
-    public List getColumns() {
+    public List<Column> getColumns() {
         return Collections.unmodifiableList(columns);
     }
 
@@ -38,34 +38,4 @@ public class Table {
         return columns.size();
     }
 
-    public class Column {
-        private final int index;
-        private final String name;
-        private final Class type;
-        private final boolean defaultVisible;
-
-
-        public Column(int index, String name, Class type, boolean defaultVisible) {
-            this.index = index;
-            this.name = name;
-            this.type = type;
-            this.defaultVisible = defaultVisible;
-        }
-
-        public int getIndex() {
-            return index;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Class getType() {
-            return type;
-        }
-
-        public boolean isDefaultVisible() {
-            return defaultVisible;
-        }
-    }
 }

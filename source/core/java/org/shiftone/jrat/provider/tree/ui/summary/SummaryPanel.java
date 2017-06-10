@@ -4,6 +4,7 @@ import org.jdesktop.swingx.JXHyperlink;
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.JXTaskPane;
 import org.jdesktop.swingx.JXTaskPaneContainer;
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.JXTableWatcher;
 import org.shiftone.jrat.desktop.util.Table;
 import org.shiftone.jrat.provider.tree.ui.summary.action.AllColumnVisibilityAction;
@@ -251,7 +252,7 @@ public class SummaryPanel extends JPanel {
             return (String) summaryTableModel.getValueAt(r, SummaryTableModel.METHOD.getIndex());
         }
 
-        private long getTotal(int[] rows, Table.Column column) {
+        private long getTotal(int[] rows, Column column) {
 
             long value = 0;
             for (int i = 0; i < rows.length; i++) {

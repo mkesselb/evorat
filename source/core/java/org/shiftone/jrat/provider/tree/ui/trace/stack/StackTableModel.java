@@ -2,6 +2,7 @@ package org.shiftone.jrat.provider.tree.ui.trace.stack;
 
 
 import org.shiftone.jrat.core.MethodKey;
+import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.Table;
 import org.shiftone.jrat.provider.tree.ui.TraceTreeNode;
 import org.shiftone.jrat.util.Percent;
@@ -24,23 +25,23 @@ public class StackTableModel extends AbstractTableModel {
     private long rootTotalDuration;
 
     private static final Table TABLE = new Table(); // enum please?
-    public static final Table.Column PACKAGE = TABLE.column("Package", false);
-    public static final Table.Column CLASS = TABLE.column("Class");
-    public static final Table.Column METHOD = TABLE.column("Method");
-    public static final Table.Column SIGNATURE = TABLE.column("Signature");
-    public static final Table.Column ENTERS = TABLE.column("Enters", false);
-    public static final Table.Column EXITS = TABLE.column("Exits");
-    public static final Table.Column ERRORS = TABLE.column("Errors", false);
-    public static final Table.Column THREADS = TABLE.column("Concurrent Threads", false);
-    public static final Table.Column TOTAL = TABLE.column("Total ms");
-    public static final Table.Column AVERAGE = TABLE.column("Average ms", false);
-    public static final Table.Column TOTAL_METHOD = TABLE.column("Total Method ms");
-    public static final Table.Column AVERAGE_METHOD = TABLE.column("Average Method ms");
-    public static final Table.Column STANDARD_DEVIATION = TABLE.column("Standard Deviation", false);
-    public static final Table.Column MIN = TABLE.column("Min ms", false);
-    public static final Table.Column MAX = TABLE.column("Max ms", false);
-    public static final Table.Column PERCENT_OF_PARENT = TABLE.column("% of Parent");
-    public static final Table.Column PERCENT_OF_ROOT = TABLE.column("% of Root");
+    public static final Column PACKAGE = TABLE.column("Package", false);
+    public static final Column CLASS = TABLE.column("Class");
+    public static final Column METHOD = TABLE.column("Method");
+    public static final Column SIGNATURE = TABLE.column("Signature");
+    public static final Column ENTERS = TABLE.column("Enters", false);
+    public static final Column EXITS = TABLE.column("Exits");
+    public static final Column ERRORS = TABLE.column("Errors", false);
+    public static final Column THREADS = TABLE.column("Concurrent Threads", false);
+    public static final Column TOTAL = TABLE.column("Total ms");
+    public static final Column AVERAGE = TABLE.column("Average ms", false);
+    public static final Column TOTAL_METHOD = TABLE.column("Total Method ms");
+    public static final Column AVERAGE_METHOD = TABLE.column("Average Method ms");
+    public static final Column STANDARD_DEVIATION = TABLE.column("Standard Deviation", false);
+    public static final Column MIN = TABLE.column("Min ms", false);
+    public static final Column MAX = TABLE.column("Max ms", false);
+    public static final Column PERCENT_OF_PARENT = TABLE.column("% of Parent");
+    public static final Column PERCENT_OF_ROOT = TABLE.column("% of Root");
 
 
     public Object getValueAt(int rowIndex, int columnIndex) {
