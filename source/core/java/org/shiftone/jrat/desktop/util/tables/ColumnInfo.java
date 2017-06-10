@@ -1,4 +1,4 @@
-package org.shiftone.jrat.desktop.util;
+package org.shiftone.jrat.desktop.util.tables;
 
 /**
  * @author (jeff@shiftone.org) Jeff Drost
@@ -6,7 +6,7 @@ package org.shiftone.jrat.desktop.util;
 public class ColumnInfo {
 
     private String title;
-    private Class type = Object.class;
+    private Class<?> type = Object.class;
     private boolean defaultVisible;
 
 
@@ -29,7 +29,7 @@ public class ColumnInfo {
         return defaultVisible;
     }
 
-    public Class getType() {
+    public Class<?> getType() {
         return type;
     }
 }

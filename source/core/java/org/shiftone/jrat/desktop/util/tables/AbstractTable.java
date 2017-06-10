@@ -1,17 +1,25 @@
-package org.shiftone.jrat.desktop.util;
+package org.shiftone.jrat.desktop.util.tables;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author (jeff@shiftone.org) Jeff Drost
- */
-public class Table {
+public class AbstractTable {
+	
+	protected List<Column> columns = new ArrayList<>();
+	
+    public List<Column> getColumns() {
+        return Collections.unmodifiableList(columns);
+    }
 
+    public Column getColumn(int index) {
+        return (Column) columns.get(index);
+    }
 
-    private List<Column> columns = new ArrayList<>();
-
+    public int getColumnCount() {
+        return columns.size();
+    }
+    
     public synchronized Column column(String name) {
         return column(name, true);
     }
@@ -25,17 +33,4 @@ public class Table {
         columns.add(column);
         return column;
     }
-
-    public List<Column> getColumns() {
-        return Collections.unmodifiableList(columns);
-    }
-
-    public Column getColumn(int index) {
-        return (Column) columns.get(index);
-    }
-
-    public int getColumnCount() {
-        return columns.size();
-    }
-
 }

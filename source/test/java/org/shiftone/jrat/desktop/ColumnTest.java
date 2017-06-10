@@ -1,7 +1,7 @@
 package org.shiftone.jrat.desktop;
 
 import org.junit.Test;
-import org.shiftone.jrat.desktop.util.Column;
+import org.shiftone.jrat.desktop.util.tables.Column;
 
 import static org.junit.Assert.*;
 

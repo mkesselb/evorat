@@ -1,7 +1,8 @@
 package org.shiftone.jrat.provider.tree.ui.summary;
 
-import org.shiftone.jrat.desktop.util.Column;
-import org.shiftone.jrat.desktop.util.Table;
+import org.shiftone.jrat.desktop.util.tables.Column;
+import org.shiftone.jrat.desktop.util.tables.Table;
+import org.shiftone.jrat.desktop.util.tables.AbstractTable;
 import org.shiftone.jrat.util.Percent;
 
 import javax.swing.table.AbstractTableModel;
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class SummaryTableModel extends AbstractTableModel {
 
-    private static final Table TABLE = new Table();
+    private static final AbstractTable TABLE = new Table();
     public static final Column PACKAGE = TABLE.column("Package", false);
     public static final Column CLASS = TABLE.column("Class");
     public static final Column METHOD = TABLE.column("Method");
@@ -30,7 +31,6 @@ public class SummaryTableModel extends AbstractTableModel {
     public static final Column PERCENT_METHOD = TABLE.column("Method Time %");
     public static final Column AVERAGE_METHOD = TABLE.column("Average Method ms");
     public static final Column TOTAL_CALLERS = TABLE.column("Total Callers", false);
-
 
     private final MethodSummaryModel summaryModel;
     private final List methodSummaryList;
@@ -121,6 +121,4 @@ public class SummaryTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return TABLE.getColumn(column).getName();
     }
-
-
 }

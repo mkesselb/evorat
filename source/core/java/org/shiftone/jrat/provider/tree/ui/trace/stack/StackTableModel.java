@@ -2,8 +2,9 @@ package org.shiftone.jrat.provider.tree.ui.trace.stack;
 
 
 import org.shiftone.jrat.core.MethodKey;
-import org.shiftone.jrat.desktop.util.Column;
-import org.shiftone.jrat.desktop.util.Table;
+import org.shiftone.jrat.desktop.util.tables.AbstractTable;
+import org.shiftone.jrat.desktop.util.tables.Column;
+import org.shiftone.jrat.desktop.util.tables.Table;
 import org.shiftone.jrat.provider.tree.ui.TraceTreeNode;
 import org.shiftone.jrat.util.Percent;
 import org.shiftone.jrat.util.log.Logger;
@@ -24,7 +25,7 @@ public class StackTableModel extends AbstractTableModel {
     private List stack = new ArrayList();
     private long rootTotalDuration;
 
-    private static final Table TABLE = new Table(); // enum please?
+    private static final AbstractTable TABLE = new Table(); // enum please?
     public static final Column PACKAGE = TABLE.column("Package", false);
     public static final Column CLASS = TABLE.column("Class");
     public static final Column METHOD = TABLE.column("Method");

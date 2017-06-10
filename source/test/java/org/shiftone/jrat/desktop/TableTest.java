@@ -1,8 +1,9 @@
 package org.shiftone.jrat.desktop;
 
 import org.junit.Test;
-import org.shiftone.jrat.desktop.util.Column;
-import org.shiftone.jrat.desktop.util.Table;
+import org.shiftone.jrat.desktop.util.tables.AbstractTable;
+import org.shiftone.jrat.desktop.util.tables.Column;
+import org.shiftone.jrat.desktop.util.tables.Table;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +13,7 @@ public class TableTest {
 
 	@Test
 	public void testGetColumns(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		
 		t.column("1");
 		t.column("2");
@@ -27,7 +28,7 @@ public class TableTest {
 	
 	@Test
 	public void testGetColumn(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		
 		t.column("1");
 		t.column("2");
@@ -40,7 +41,7 @@ public class TableTest {
 	
 	@Test
 	public void testGetColumnCount(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		
 		t.column("1");
 		t.column("2");
@@ -51,7 +52,7 @@ public class TableTest {
 	
 	@Test
 	public void testGetColumnCountEmpty(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		
 		int count = t.getColumnCount();
 		assertEquals(0, count);
@@ -59,7 +60,7 @@ public class TableTest {
 	
 	@Test
 	public void testSmallColumnCall(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		t.column("column1");
 		
 		Column c = t.getColumn(0);
@@ -76,7 +77,7 @@ public class TableTest {
 	
 	@Test
 	public void testMediumColumnCall(){
-		Table t = new Table();
+		AbstractTable t = new Table();
 		t.column("column1", false);
 		
 		Column c = t.getColumn(0);

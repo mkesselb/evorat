@@ -1,8 +1,9 @@
 package org.shiftone.jrat.provider.tree.ui.hierarchy;
 
 import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
-import org.shiftone.jrat.desktop.util.Column;
-import org.shiftone.jrat.desktop.util.Table;
+import org.shiftone.jrat.desktop.util.tables.AbstractTable;
+import org.shiftone.jrat.desktop.util.tables.Column;
+import org.shiftone.jrat.desktop.util.tables.Table;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.HierarchyNode;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.MethodHierarchyNode;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.PackageHierarchyNode;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class HierarchyTreeTableModel extends AbstractTreeTableModel {
 
-    public static final Table TABLE = new Table();
+    public static final AbstractTable TABLE = new Table();
     public static final Column CLASS = TABLE.column("Class");
     public static final Column METHODS = TABLE.column("Methods");
     public static final Column TOTAL_EXITS = TABLE.column("Exists", false);
