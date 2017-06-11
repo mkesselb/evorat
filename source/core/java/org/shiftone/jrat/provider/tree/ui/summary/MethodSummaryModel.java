@@ -8,10 +8,10 @@ import java.util.*;
 /**
  * @author (jeff@shiftone.org) Jeff Drost
  */
-public class MethodSummaryModel {
+public class MethodSummaryModel implements IMethodSummaryModel {
 
-    private final List methodList = new ArrayList(); // <MethodSummary>
-    private final Map methodMap = new HashMap(); // <MethodKey, MethodSummary>
+    private final List<IMethodSummary> methodList = new ArrayList<>();
+    private final Map<MethodKey, IMethodSummary> methodMap = new HashMap<>();
     private final long totalMethodDuration;
 
     public MethodSummaryModel(TraceTreeNode node) {
@@ -19,15 +19,14 @@ public class MethodSummaryModel {
         totalMethodDuration = calculateTotalMethodDuration();
     }
 
-
     public long getTotalMethodDuration() {
         return totalMethodDuration;
     }
 
     private long calculateTotalMethodDuration() {
         long duration = 0;
-        for (Iterator i = methodList.iterator(); i.hasNext();) {
-            MethodSummary summary = (MethodSummary) i.next();
+        for (Iterator<IMethodSummary> i = methodList.iterator(); i.hasNext();) {
+            IMethodSummary summary = i.next();
             Long d = (Long) summary.getTotalMethodDuration();
             if (d != null) {
                 duration += d.longValue();
@@ -36,12 +35,11 @@ public class MethodSummaryModel {
         return duration;
     }
 
-
     private void process(TraceTreeNode node) {
 
         if (!node.isRootNode()) {
             MethodKey methodKey = node.getMethodKey();
-            MethodSummary method = getMethod(methodKey);
+            IMethodSummary method = getMethod(methodKey);
             method.addStatistics(node);
         }
 
@@ -51,8 +49,7 @@ public class MethodSummaryModel {
         }
     }
 
-
-    private MethodSummary getMethod(MethodKey methodKey) {
+    private IMethodSummary getMethod(MethodKey methodKey) {
         MethodSummary summary = (MethodSummary) methodMap.get(methodKey);
         if (summary == null) {
             summary = new MethodSummary(methodKey);
@@ -62,12 +59,11 @@ public class MethodSummaryModel {
         return summary;
     }
 
-
-    public List getMethodSummaryList() {
+    public List<IMethodSummary> getMethodSummaryList() {
         return Collections.unmodifiableList(methodList);
     }
 
-    public Map getMethodSummaryMap() {
+    public Map<MethodKey, IMethodSummary> getMethodSummaryMap() {
         return Collections.unmodifiableMap(methodMap);
     }
 }

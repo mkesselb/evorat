@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AbstractTable {
+public abstract class AbstractTable {
 	
 	protected List<Column> columns = new ArrayList<>();
 	
@@ -33,4 +33,22 @@ public class AbstractTable {
         columns.add(column);
         return column;
     }
+    
+	public int getIndexForName(String name){
+		for(Column c : this.getColumns()){
+			if(c.getName().equals(name)){
+				return c.getIndex();
+			}
+		}
+		
+		return -1;
+	}
+	
+	public String getNameAtIndex(int index){
+		if(index >= 0 && index < columns.size()){
+			return columns.get(index).getName();
+		}
+		
+		return null;
+	}
 }

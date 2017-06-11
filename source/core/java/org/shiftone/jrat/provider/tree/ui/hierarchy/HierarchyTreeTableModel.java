@@ -3,7 +3,7 @@ package org.shiftone.jrat.provider.tree.ui.hierarchy;
 import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
 import org.shiftone.jrat.desktop.util.tables.AbstractTable;
 import org.shiftone.jrat.desktop.util.tables.Column;
-import org.shiftone.jrat.desktop.util.tables.Table;
+import org.shiftone.jrat.desktop.util.tables.HierarchyTable;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.HierarchyNode;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.MethodHierarchyNode;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.nodes.PackageHierarchyNode;
@@ -15,17 +15,7 @@ import java.util.List;
  */
 public class HierarchyTreeTableModel extends AbstractTreeTableModel {
 
-    public static final AbstractTable TABLE = new Table();
-    public static final Column CLASS = TABLE.column("Class");
-    public static final Column METHODS = TABLE.column("Methods");
-    public static final Column TOTAL_EXITS = TABLE.column("Exists", false);
-    public static final Column UNCALLED = TABLE.column("Uncalled", false);
-    public static final Column COVERAGE = TABLE.column("Coverage %", false);
-    public static final Column EXCEPTIONS = TABLE.column("Exceptions", false);
-    public static final Column ERROR_RATE = TABLE.column("Error Rate", false);
-    public static final Column TOTAL = TABLE.column("Total ms", false);
-    public static final Column TOTAL_METHOD = TABLE.column("Total Method ms");
-    public static final Column PERCENT_METHOD = TABLE.column("Method Time %");
+    public static final AbstractTable TABLE = new HierarchyTable();
 
     private final PackageHierarchyNode root;
 
@@ -33,7 +23,7 @@ public class HierarchyTreeTableModel extends AbstractTreeTableModel {
         this.root = root;
     }
 
-    public static List getColumns() {
+    public static List<Column> getColumns() {
         return TABLE.getColumns();
     }
 
@@ -53,34 +43,34 @@ public class HierarchyTreeTableModel extends AbstractTreeTableModel {
 
         HierarchyNode node = (HierarchyNode) o;
 
-        if (CLASS.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.CLASS) == i) {
             return o.toString();
         }
-        if (METHODS.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.METHODS) == i) {
             return getTotalMethods(node);
         }
-        if (UNCALLED.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.UNCALLED) == i) {
             return getUncalledMethods(node);
         }
-        if (COVERAGE.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.COVERAGE) == i) {
             return node.getCoverage();
         }
-        if (TOTAL.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.TOTAL) == i) {
             return new Long(node.getTotalDuration());
         }
-        if (TOTAL_METHOD.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.TOTAL_METHOD) == i) {
             return node.getTotalMethodDuration();
         }
-        if (PERCENT_METHOD.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.PERCENT_METHOD) == i) {
             return node.getTotalMethodPercent();
         }
-        if (TOTAL_EXITS.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.TOTAL_EXITS) == i) {
             return new Long(node.getTotalExits());
         }
-        if (EXCEPTIONS.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.EXCEPTIONS) == i) {
             return new Long(node.getTotalErrors());
         }
-        if (ERROR_RATE.getIndex() == i) {
+        if (TABLE.getIndexForName(HierarchyTable.ERROR_RATE) == i) {
             return node.getErrorRate();
         }
         return null;

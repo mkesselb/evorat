@@ -45,7 +45,6 @@ public class MethodKey implements Serializable, Comparable {
     private MethodKey() {
     }
 
-
     private MethodKey(ClassKey classKey, String methodName, String signature) {
 
         Assert.assertNotNull("classKey", classKey);

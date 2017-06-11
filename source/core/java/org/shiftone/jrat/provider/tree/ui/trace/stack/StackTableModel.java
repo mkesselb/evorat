@@ -1,6 +1,5 @@
 package org.shiftone.jrat.provider.tree.ui.trace.stack;
 
-
 import org.shiftone.jrat.core.MethodKey;
 import org.shiftone.jrat.desktop.util.tables.AbstractTable;
 import org.shiftone.jrat.desktop.util.tables.Column;
@@ -154,7 +153,6 @@ public class StackTableModel extends AbstractTableModel {
         return stack.size();
     }
 
-
     public static List getColumns() {
         return TABLE.getColumns();
     }
@@ -163,21 +161,17 @@ public class StackTableModel extends AbstractTableModel {
         return TABLE.getColumnCount();
     }
 
-
     public String getColumnName(int columnIndex) {
         return TABLE.getColumn(columnIndex).getName();
     }
-
 
     public Class getColumnClass(int columnIndex) {
         return TABLE.getColumn(columnIndex).getType();
     }
 
-
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return false;
     }
-
 
     public double getPctOfAvgRootDuration(TraceTreeNode node) {
 

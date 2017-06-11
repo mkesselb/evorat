@@ -3,7 +3,6 @@ package org.shiftone.jrat.provider.tree.ui.summary.action;
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.table.TableColumnExt;
 import org.shiftone.jrat.desktop.util.tables.Column;
-import org.shiftone.jrat.desktop.util.tables.Table;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

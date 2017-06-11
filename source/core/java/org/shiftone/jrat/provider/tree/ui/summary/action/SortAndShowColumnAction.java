@@ -4,7 +4,6 @@ import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.decorator.SortOrder;
 import org.jdesktop.swingx.table.TableColumnExt;
 import org.shiftone.jrat.desktop.util.tables.Column;
-import org.shiftone.jrat.desktop.util.tables.Table;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

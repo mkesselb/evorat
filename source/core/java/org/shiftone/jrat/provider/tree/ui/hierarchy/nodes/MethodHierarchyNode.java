@@ -1,7 +1,7 @@
 package org.shiftone.jrat.provider.tree.ui.hierarchy.nodes;
 
 import org.shiftone.jrat.core.MethodKey;
-import org.shiftone.jrat.provider.tree.ui.summary.MethodSummaryModel;
+import org.shiftone.jrat.provider.tree.ui.summary.IMethodSummaryModel;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class MethodHierarchyNode extends HierarchyNode {
 
-    public MethodHierarchyNode(MethodKey methodKey, MethodSummaryModel methodSummaryModel) {
+    public MethodHierarchyNode(MethodKey methodKey, IMethodSummaryModel methodSummaryModel) {
 
         super(methodKey.getMethodName()
                 + "("

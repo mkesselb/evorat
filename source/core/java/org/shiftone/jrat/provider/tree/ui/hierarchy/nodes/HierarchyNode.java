@@ -1,18 +1,18 @@
 package org.shiftone.jrat.provider.tree.ui.hierarchy.nodes;
 
-import org.shiftone.jrat.provider.tree.ui.summary.MethodSummaryModel;
+import org.shiftone.jrat.provider.tree.ui.summary.IMethodSummaryModel;
 import org.shiftone.jrat.util.Percent;
 
 import java.util.List;
 
 public abstract class HierarchyNode {
 
-    private final MethodSummaryModel methodSummaryModel;
+    private final IMethodSummaryModel methodSummaryModel;
     private static final HierarchyNode[] EMPTY = {};
     private final String name;
 
 
-    public HierarchyNode(String name, MethodSummaryModel methodSummaryModel) {
+    public HierarchyNode(String name, IMethodSummaryModel methodSummaryModel) {
         this.name = name;
         this.methodSummaryModel = methodSummaryModel;
     }
@@ -26,7 +26,7 @@ public abstract class HierarchyNode {
     }
 
 
-    public MethodSummaryModel getMethodSummaryModel() {
+    public IMethodSummaryModel getMethodSummaryModel() {
         return methodSummaryModel;
     }
 
