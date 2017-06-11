@@ -2,7 +2,7 @@ package org.shiftone.jrat.desktop.action.inject;
 
 import org.shiftone.jrat.util.Exceptions;
 import org.shiftone.jrat.util.log.Logger;
-import org.shiftone.jrat.util.log.LoggerFactory;
+import org.shiftone.jrat.util.log.ThreadLoggerFactory;
 import org.shiftone.jrat.util.log.target.LogTarget;
 
 import javax.swing.*;
@@ -46,7 +46,7 @@ public class RunnableLogPanel extends JPanel {
             public void run() {
                 setLabel("Running...");
                 try {
-                    LoggerFactory.executeInThreadScope(new GuiLogTarget(), target);
+                    ThreadLoggerFactory.executeInThreadScope(new GuiLogTarget(), target);
                     setLabel("Finished.");
                 } catch (Throwable e) {
                     setLabel("Failed.");

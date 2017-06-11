@@ -1,7 +1,7 @@
 package org.shiftone.jrat.desktop;
 
 import org.shiftone.jrat.desktop.util.Tips;
-import org.shiftone.jrat.util.log.LoggerFactory;
+import org.shiftone.jrat.util.log.LoggerFactoryManager;
 
 /**
  * @author jeff@shiftone.org (Jeff Drost)
@@ -9,7 +9,7 @@ import org.shiftone.jrat.util.log.LoggerFactory;
 public class Desktop {
 
     public static void main(String[] args) {
-        LoggerFactory.enableThreadBasedLogging();
+    	LoggerFactoryManager.enableThreadBasedLogging();
         DesktopFrame frame = new DesktopFrame();
         frame.setVisible(true);
         Tips.show(frame, false);

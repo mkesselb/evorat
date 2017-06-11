@@ -1,7 +1,5 @@
 package org.shiftone.jrat.core;
 
-
-import org.shiftone.jrat.core.command.CommandletRegistry;
 import org.shiftone.jrat.core.jmx.JmxRegistry;
 import org.shiftone.jrat.core.output.OutputDirectory;
 import org.shiftone.jrat.core.shutdown.ShutdownListener;
@@ -14,13 +12,12 @@ import org.shiftone.jrat.util.AtomicLong;
 import org.shiftone.jrat.util.VersionUtil;
 import org.shiftone.jrat.util.io.IOUtil;
 import org.shiftone.jrat.util.log.Logger;
-import org.shiftone.jrat.util.log.LoggerFactory;
+import org.shiftone.jrat.util.log.LoggerFactoryManager;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.util.Properties;
 import java.util.zip.GZIPOutputStream;
-
 
 /**
  * Class RuntimeContextImpl
@@ -107,7 +104,7 @@ class RuntimeContextImpl implements RuntimeContext {
 
         try {
             printWriter = outputDirectory.createPrintWriter("jrat.log");
-            LoggerFactory.redirectLogging(printWriter);
+            LoggerFactoryManager.redirectLogging(printWriter);
             LOG.info("logfile created");
             LOG.info("Running JRat version " + VersionUtil.getVersion() + " - built on " + VersionUtil.getBuiltOn());
         }

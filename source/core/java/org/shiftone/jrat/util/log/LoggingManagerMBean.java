@@ -8,15 +8,11 @@ public interface LoggingManagerMBean {
 
     void makeLevelLoud();
 
-
     void setLevel(String levelName);
-
 
     String getLevel();
 
-
     void disableLogging();
-
 
     void enableSystemOutLogging();
 }

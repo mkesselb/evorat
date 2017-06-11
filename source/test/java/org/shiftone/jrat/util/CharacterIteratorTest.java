@@ -18,7 +18,7 @@ public class CharacterIteratorTest {
 	
 	@Test
 	public void testGetEnd(){
-		CharacterIterator ci = new CharacterIterator("a");
+		CharacterIterator ci = new CharacterIterator(new char[]{'a'});
 		
 		boolean bresult = ci.next();
 		assertEquals(true, bresult);

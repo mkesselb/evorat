@@ -41,10 +41,10 @@ public class SignatureTest {
 		
 	@Test
 	public void testGetParameterType(){
-		Signature sig = parser.parseSignature("(ICLorg/shiftone/jrat/core/Signature;)V");
+		Signature sig = parser.parseSignature("([[ICLorg/shiftone/jrat/core/Signature;)V");
 		
 		String result = sig.getParameterType(0);
-		assertEquals("int", result);
+		assertEquals("int[][]", result);
 		
 		result = sig.getParameterType(1);
 		assertEquals("char", result);
