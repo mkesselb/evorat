@@ -4,9 +4,9 @@ import org.jdesktop.swingx.JXHyperlink;
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.JXTaskPane;
 import org.jdesktop.swingx.JXTaskPaneContainer;
-import org.shiftone.jrat.desktop.util.Column;
 import org.shiftone.jrat.desktop.util.JXTableWatcher;
-import org.shiftone.jrat.desktop.util.Table;
+import org.shiftone.jrat.desktop.util.tables.Column;
+import org.shiftone.jrat.desktop.util.tables.SummaryTable;
 import org.shiftone.jrat.provider.tree.ui.summary.action.AllColumnVisibilityAction;
 import org.shiftone.jrat.provider.tree.ui.summary.action.ResetColumnVisibilityAction;
 import org.shiftone.jrat.provider.tree.ui.summary.action.ShowSystemPropertiesAction;
@@ -105,12 +105,12 @@ public class SummaryPanel extends JPanel {
         pane.add(new JXHyperlink(new SortAndShowColumnAction(
                 "Sort by Total Method Duration",
                 table,
-                SummaryTableModel.TOTAL_METHOD)));
+                summaryTableModel.getColumn(SummaryTable.TOTAL_METHOD))));
 
         pane.add(new JXHyperlink(new SortAndShowColumnAction(
                 "Sort by Exception Rate",
                 table,
-                SummaryTableModel.EXCEPTION_RATE)));
+                summaryTableModel.getColumn(SummaryTable.EXCEPTION_RATE))));
 
         pane.add(new JXHyperlink(
                 new ResetColumnVisibilityAction(table, SummaryTableModel.getColumns())
@@ -201,10 +201,10 @@ public class SummaryPanel extends JPanel {
 
         private void show(int[] rows) {
 
-            long methodTime = getTotal(rows, SummaryTableModel.TOTAL_METHOD);
-            long totalErrors = getTotal(rows, SummaryTableModel.EXCEPTIONS);
-            long totalExists = getTotal(rows, SummaryTableModel.EXITS);
-            long uncompleted = getTotal(rows, SummaryTableModel.UNCOMPLETED);
+            long methodTime = getTotal(rows, summaryTableModel.getColumn(SummaryTable.TOTAL_METHOD));
+            long totalErrors = getTotal(rows, summaryTableModel.getColumn(SummaryTable.EXCEPTIONS));
+            long totalExists = getTotal(rows, summaryTableModel.getColumn(SummaryTable.EXITS));
+            long uncompleted = getTotal(rows, summaryTableModel.getColumn(SummaryTable.UNCOMPLETED));
 
             StringBuffer sb = new StringBuffer("<html><table>");
 
@@ -249,7 +249,7 @@ public class SummaryPanel extends JPanel {
 
         private String getMethod(int row) {
             int r = table.convertRowIndexToModel(row);
-            return (String) summaryTableModel.getValueAt(r, SummaryTableModel.METHOD.getIndex());
+            return (String) summaryTableModel.getValueAt(r, summaryTableModel.getColumn(SummaryTable.METHOD).getIndex());
         }
 
         private long getTotal(int[] rows, Column column) {

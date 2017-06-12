@@ -20,7 +20,7 @@ public class ShutdownRegistryTestCase extends TestCase {
         FileOutputFactory fileOutputFactory = new FileOutputFactory(fileOutputRegistry, 0);
 
         shutdownRegistry.registerShutdownListener(fileOutputRegistry);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             shutdownRegistry.registerShutdownListener(new TestShutdownListener(i));
         }
     }

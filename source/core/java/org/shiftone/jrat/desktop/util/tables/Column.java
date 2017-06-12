@@ -1,4 +1,4 @@
-package org.shiftone.jrat.desktop.util;
+package org.shiftone.jrat.desktop.util.tables;
 
 public class Column {
 

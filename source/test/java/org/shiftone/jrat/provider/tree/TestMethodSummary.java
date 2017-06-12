@@ -1,4 +1,4 @@
-package org.shiftone.jrat.provider.tree.ui.summary;
+package org.shiftone.jrat.provider.tree;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,12 +6,10 @@ import java.util.Map;
 import org.shiftone.jrat.core.Accumulator;
 import org.shiftone.jrat.core.MethodKey;
 import org.shiftone.jrat.provider.tree.ui.TraceTreeNode;
+import org.shiftone.jrat.provider.tree.ui.summary.IMethodSummary;
 import org.shiftone.jrat.util.Percent;
 
-/**
- * @author (jeff@shiftone.org) Jeff Drost
- */
-public class MethodSummary implements IMethodSummary {
+public class TestMethodSummary implements IMethodSummary {
 
     private final MethodKey methodKey;
     private long totalEnters;
@@ -25,10 +23,19 @@ public class MethodSummary implements IMethodSummary {
     
     private Map<String, Object> valueMap = new HashMap<String, Object>();
 
-    public MethodSummary(MethodKey methodKey) {
-        this.methodKey = methodKey;
+    public TestMethodSummary() {
+        this.methodKey = MethodKey.getInstance("La/b.method", "method", "(IC)V");
+        totalEnters = 3L;
+        totalExists = 3L;
+        totalErrors = 4;
+        minDuration = 5L;
+        maxDuration = 6L;
+        totalDuration = 7L;
+        totalMethodDuration = 8L;
+        totalCallers = 9;
+        this.updateMap();
     }
-
+    
     public void addStatistics(TraceTreeNode node) {
         Accumulator accumulator = node.getAccumulator();
         totalEnters += accumulator.getTotalEnters();
@@ -43,14 +50,8 @@ public class MethodSummary implements IMethodSummary {
         totalDuration += accumulator.getTotalDuration();
         totalMethodDuration += node.getTotalMethodDuration();
         totalCallers++;
-        updateMap();
     }
 
-    /**
-     * It the method has been entered but not exited, then it is
-     * possible that the method time would end up negative.  I'm not
-     * showing it at all in this case to avoid confusion.
-     */
     public Long getTotalMethodDuration() {
         return totalEnters != totalExists
                 ? null

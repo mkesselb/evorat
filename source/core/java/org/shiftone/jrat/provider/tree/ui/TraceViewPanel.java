@@ -2,6 +2,7 @@ package org.shiftone.jrat.provider.tree.ui;
 
 import org.shiftone.jrat.provider.tree.ui.hierarchy.HierarchyModelBuilder;
 import org.shiftone.jrat.provider.tree.ui.hierarchy.HierarchyPanel;
+import org.shiftone.jrat.provider.tree.ui.summary.IMethodSummaryModel;
 import org.shiftone.jrat.provider.tree.ui.summary.MethodSummaryModel;
 import org.shiftone.jrat.provider.tree.ui.summary.SummaryPanel;
 import org.shiftone.jrat.provider.tree.ui.summary.SummaryTableModel;
@@ -38,7 +39,7 @@ public class TraceViewPanel extends JPanel {
 
         long start = System.currentTimeMillis();
 
-        MethodSummaryModel methodSummaryModel = new MethodSummaryModel(node);
+        IMethodSummaryModel methodSummaryModel = new MethodSummaryModel(node);
 
         {
             SummaryTableModel summaryTableModel = new SummaryTableModel(methodSummaryModel);

@@ -13,9 +13,9 @@ public class Signature {
 
     private static final Logger LOG = Logger.getLogger(Signature.class);
     private String returnType;
-    private List parameterTypes = new ArrayList(5);
+    private List<String> parameterTypes = new ArrayList<>(5);
     
-    public Signature(String returnType, List parameterTypes){
+    public Signature(String returnType, List<String> parameterTypes){
     	this.returnType = returnType;
     	this.parameterTypes = parameterTypes;
     }

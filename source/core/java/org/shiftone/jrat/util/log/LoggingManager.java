@@ -7,26 +7,22 @@ package org.shiftone.jrat.util.log;
 public class LoggingManager implements Constants, LoggingManagerMBean {
 
     public void makeLevelLoud() {
-        LoggerFactory.setLevel(LEVEL_TRACE);
+        LoggerFactoryManager.setLevel(LEVEL_TRACE);
     }
-
 
     public void setLevel(String levelName) {
-        LoggerFactory.setLevel(LoggerFactory.getLevelFromName(levelName));
+    	LoggerFactoryManager.setLevelFromName(levelName);
     }
-
 
     public String getLevel() {
-        return LEVEL_NAMES[LoggerFactory.getLevel()];
+        return LEVEL_NAMES[LoggerFactoryManager.getLevel()];
     }
-
 
     public void disableLogging() {
-        LoggerFactory.disableLogging();
+    	LoggerFactoryManager.disableLogging();
     }
 
-
     public void enableSystemOutLogging() {
-        LoggerFactory.enableSystemOutLogging();
+    	LoggerFactoryManager.enableSystemOutLogging();
     }
 }

@@ -12,7 +12,7 @@ import org.shiftone.jrat.util.log.Logger;
 public class SignatureParser {
 	
 	private static final Logger LOG = Logger.getLogger(SignatureParser.class);
-	private static Map PRIM_CODES = new HashMap();
+	private static Map<String, String> PRIM_CODES = new HashMap<>();
 	private CharacterIterator charIterator;
 	
     static {

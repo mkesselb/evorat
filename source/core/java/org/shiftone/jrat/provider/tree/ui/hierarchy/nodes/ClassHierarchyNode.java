@@ -1,10 +1,10 @@
 package org.shiftone.jrat.provider.tree.ui.hierarchy.nodes;
 
-import org.shiftone.jrat.provider.tree.ui.summary.MethodSummaryModel;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import org.shiftone.jrat.provider.tree.ui.summary.IMethodSummaryModel;
 
 /**
  * @author jeff@shiftone.org (Jeff Drost)
@@ -19,7 +19,7 @@ public class ClassHierarchyNode extends HierarchyNode {
     private long totalErrors;
     private long totalExists;
 
-    public ClassHierarchyNode(String name, MethodSummaryModel methodSummaryModel) {
+    public ClassHierarchyNode(String name, IMethodSummaryModel methodSummaryModel) {
         super(name, methodSummaryModel);
     }
 

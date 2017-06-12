@@ -23,7 +23,7 @@ public abstract class AbstractLogCommandlet implements Commandlet {
 
     public final void execute(OutputStream output) throws Exception {
 
-        LogTarget previous = LoggerFactory.getLogTarget();
+        LogTarget previous = LoggerFactoryManager.getLogTarget();
 
         Writer outputWriter = new OutputStreamWriter(output);
         WriterLogTarget writer = new WriterLogTarget(outputWriter);
@@ -31,7 +31,7 @@ public abstract class AbstractLogCommandlet implements Commandlet {
 
         try {
 
-            LoggerFactory.setLogTarget(tandem);
+        	LoggerFactoryManager.setLogTarget(tandem);
             execute();
 
         } catch (Throwable e) {
@@ -40,7 +40,7 @@ public abstract class AbstractLogCommandlet implements Commandlet {
 
         } finally {
 
-            LoggerFactory.setLogTarget(previous);
+        	LoggerFactoryManager.setLogTarget(previous);
 
         }
     }

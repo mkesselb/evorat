@@ -2,6 +2,7 @@ package org.shiftone.jrat.desktop.util;
 
 import org.jdesktop.swingx.JXTable;
 import org.jdesktop.swingx.table.TableColumnExt;
+import org.shiftone.jrat.desktop.util.tables.Column;
 import org.shiftone.jrat.util.log.Logger;
 
 import java.beans.PropertyChangeEvent;
