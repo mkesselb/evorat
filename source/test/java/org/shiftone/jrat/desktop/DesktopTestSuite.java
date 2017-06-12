@@ -7,7 +7,8 @@ import org.junit.runners.Suite;
 
 @Suite.SuiteClasses({ 
 	TableTest.class,
-	ColumnTest.class
+	ColumnTest.class,
+	DesktopPreferencesTest.class
 })
 
 public class DesktopTestSuite {
