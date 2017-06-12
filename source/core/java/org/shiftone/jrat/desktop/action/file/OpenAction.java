@@ -2,7 +2,7 @@ package org.shiftone.jrat.desktop.action.file;
 
 import org.shiftone.jrat.core.spi.ViewBuilder;
 import org.shiftone.jrat.desktop.DesktopFrame;
-import org.shiftone.jrat.desktop.DesktopPreferences;
+import org.shiftone.jrat.desktop.DesktopLastFile;
 import org.shiftone.jrat.desktop.util.Errors;
 import org.shiftone.jrat.util.io.IOUtil;
 import org.shiftone.jrat.util.log.Logger;
@@ -34,13 +34,15 @@ public class OpenAction extends AbstractAction {
     }
 
     private File getCurrentDirectory() {
-        File file = DesktopPreferences.getLastOpenedFile();
+    	// Refactoring: changed DesktopPreferences to DesktopLastFile (s2paster)
+    	File file = DesktopLastFile.getLastOpenedFile();
 
         return (file != null) ? IOUtil.getNearestExistingParent(file) : new File("");
     }
 
     private File getSelectedFile() {
-        File file = DesktopPreferences.getLastOpenedFile();
+    	// Refactoring: changed DesktopPreferences to DesktopLastFile (s2paster)
+    	File file = DesktopLastFile.getLastOpenedFile();
         return (file != null && file.exists()) ? file : null;
     }
 
@@ -78,7 +80,8 @@ public class OpenAction extends AbstractAction {
     }
 
     private void openFile(File file) {
-        DesktopPreferences.setLastOpenedFile(file);
+    	// Refactoring: changed DesktopPreferences to DesktopLastFile (s2paster)
+    	DesktopLastFile.setLastOpenedFile(file);
         new Thread(new OpenRunnable(file)).start();
     }
 

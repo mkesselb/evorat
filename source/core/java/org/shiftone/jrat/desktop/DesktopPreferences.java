@@ -8,18 +8,21 @@ import java.util.prefs.Preferences;
 
 /**
  * @author jeff@shiftone.org (Jeff Drost)
+ *
+ *
+ * Refactoring: changed all private constants to public (s2paster)
  */
 public class DesktopPreferences {
-    private static final Preferences PREFS = Preferences.userNodeForPackage(DesktopPreferences.class);
-    private static final String RUN_COUNT = "run_count";
-    private static final String TIPS_ON_START = "show_tips_on_startup";
-    private static final String LAST_RUN_TIME = "last_run_time";
-    private static final String LAST_OPENED_FILE = "last_opened_file";
-    private static final String WINDOW_BOUNDS = "window_bounds";
-    private static final String LAST_INJECTED_FILE = "last_injected_file";
-    private static final String LAST_INJECTED_DIR = "last_injected_dir";
+    protected static final Preferences PREFS = Preferences.userNodeForPackage(DesktopPreferences.class);
+    protected static final String RUN_COUNT = "run_count";
+    protected static final String TIPS_ON_START = "show_tips_on_startup";
+    protected static final String LAST_RUN_TIME = "last_run_time";
+    protected static final String LAST_OPENED_FILE = "last_opened_file";
+    protected static final String WINDOW_BOUNDS = "window_bounds";
+    protected static final String LAST_INJECTED_FILE = "last_injected_file";
+    protected static final String LAST_INJECTED_DIR = "last_injected_dir";
 
-
+/*
     public static int getRunCount() {
         return PREFS.getInt(RUN_COUNT, 0);
     }
@@ -27,7 +30,7 @@ public class DesktopPreferences {
     public static void setRunCount(int runCount) {
         PREFS.putInt(RUN_COUNT, runCount);
     }
-
+	
     public static void incrementRunCount() {
         setRunCount(getRunCount() + 1);
     }
@@ -100,4 +103,5 @@ public class DesktopPreferences {
     private static void setFile(String key, File value) {
         PREFS.put(key, value == null ? null : value.getAbsolutePath());
     }
+*/
 }

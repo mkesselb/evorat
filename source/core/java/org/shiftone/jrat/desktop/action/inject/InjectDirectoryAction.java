@@ -1,7 +1,7 @@
 package org.shiftone.jrat.desktop.action.inject;
 
 import org.shiftone.jrat.desktop.DesktopFrame;
-import org.shiftone.jrat.desktop.DesktopPreferences;
+import org.shiftone.jrat.desktop.DesktopLastFile;
 
 import javax.swing.*;
 import java.io.File;
@@ -19,11 +19,13 @@ public class InjectDirectoryAction extends AbstractInjectAction {
     }
 
     protected void setLastInjected(File file) {
-        DesktopPreferences.setLastInjectedDir(file);
+    	// Refactoring: changed DesktopPreferences to DesktopLastFile (s2paster)
+    	DesktopLastFile.setLastInjectedDir(file);
     }
 
     protected File getLastInjected() {
-        return DesktopPreferences.getLastInjectedDir();
+    	// Refactoring: changed DesktopPreferences to DesktopLastFile (s2paster)
+    	return DesktopLastFile.getLastInjectedDir();
     }
 
 

@@ -34,13 +34,14 @@ public class DesktopFrame extends JFrame {
     public DesktopFrame() {
 
         super("JRat Desktop");
-
-        DesktopPreferences.setLastRunTime(System.currentTimeMillis());
-        DesktopPreferences.incrementRunCount();
+        // Refactoring: changed DesktopPreferences to DesktopRunCount (s2paster)
+        DesktopRunCount.setLastRunTime(System.currentTimeMillis());
+        // Refactoring: changed DesktopPreferences to DesktopRunCount (s2paster)
+        DesktopRunCount.incrementRunCount();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        Rectangle windowBounds = DesktopPreferences.getWindowBounds();
+        // Refactoring: changed DesktopPreferences to DesktopWindowBounds (s2paster)
+        Rectangle windowBounds = DesktopWindowBounds.getWindowBounds();
 
         if (windowBounds == null) {
             Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -150,11 +151,13 @@ public class DesktopFrame extends JFrame {
     private class ComponentListener extends ComponentAdapter {
 
         public void componentResized(ComponentEvent e) {
-            DesktopPreferences.setWindowBounds(getBounds());
+            // Refactoring: changed DesktopPreferences to DesktopWindowBounds (s2paster)
+        	DesktopWindowBounds.setWindowBounds(getBounds());
         }
 
         public void componentMoved(ComponentEvent e) {
-            DesktopPreferences.setWindowBounds(getBounds());
+            // Refactoring: changed DesktopPreferences to DesktopWindowBounds (s2paster)
+        	DesktopWindowBounds.setWindowBounds(getBounds());
         }
     }
 
