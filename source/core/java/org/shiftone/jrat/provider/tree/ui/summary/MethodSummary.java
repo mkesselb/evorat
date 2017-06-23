@@ -130,7 +130,7 @@ public class MethodSummary implements IMethodSummary {
     	valueMap.put("Total Callers", new Integer(this.totalCallers));
     }
     
-    public Object getFromMap(String key) throws IllegalArgumentException{
+    public Object getFromMap(String key) {
     	if(valueMap.containsKey(key)){
     		return valueMap.get(key);
     	}
